@@ -1,2 +1,3 @@
-# ch9_baxley_README_generator
-README Generator JS 
+# Professional README Generator Starter Code
+
+[How to create a Professional README](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
