@@ -15,7 +15,7 @@ const questions = [
 				console.log("Please make sure to enter your Title before you move on.");
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 
@@ -30,7 +30,7 @@ const questions = [
 				);
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 
@@ -46,7 +46,7 @@ const questions = [
 				);
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 
@@ -61,7 +61,7 @@ const questions = [
 				);
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 	{
@@ -76,7 +76,7 @@ const questions = [
 				);
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 	{
@@ -91,7 +91,7 @@ const questions = [
 				);
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 	{
@@ -119,7 +119,7 @@ const questions = [
 				console.log("Please Enter your GitHub Username before moving forward");
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 	{
@@ -131,7 +131,7 @@ const questions = [
 				console.log("Please Enter your email before moving forward");
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 	{
@@ -143,7 +143,7 @@ const questions = [
 				console.log("Please Enter your GitHub Username before moving forward");
 				return false;
 			}
-			return True;
+			return true;
 		},
 	},
 ];
@@ -157,7 +157,13 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
-
+function init() {
+	inquirer.prompt(questions).then(function (answer) {
+		console.log(answer);
+		let fileContent = generateMarkdown(answer);
+		writeToFile(fileContent);
+	});
+}
 
 // Function call to initialize app
 init();
