@@ -83,7 +83,7 @@ const questions = [
 		type: "input",
 		message:
 			"Please provide information on the testing that users may use on this Project",
-		name: "Contributions Request",
+		name: "Testing Request",
 		validate: (testingCheck) => {
 			if (!testingCheck) {
 				console.log(
@@ -96,9 +96,9 @@ const questions = [
 	},
 	{
 		type: "list",
-		message: "Please choose a license or this Project.",
+		message: "Please choose a license for this Project.",
 		name: "License",
-		choices: ["GNU", "Apache 2.0", "ISC", , "MIT", "BSD", "GPL v3.0", "None"],
+		choices: ["GNU", "Apache 2.0", "ISC", "MIT", "None"],
 		validate: (licenseCheck) => {
 			if (licenseCheck) {
 				return true;
@@ -150,7 +150,8 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-	fs.WriteToFile(fileName, data, (err) => {
+	console.log(fileName);
+	fs.writeFile(fileName, data, (err) => {
 		if (err) throw err;
 		console.log("You have created the Readme file.");
 	});
@@ -161,7 +162,7 @@ function init() {
 	inquirer.prompt(questions).then(function (answer) {
 		console.log(answer);
 		let fileContent = generateMarkdown(answer);
-		writeToFile(fileContent);
+		writeToFile("README.md", fileContent);
 	});
 }
 

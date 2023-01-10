@@ -1,46 +1,55 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseInfo(license) {
-	let licenseBadge = "";
-	let licenseLink = "";
-	switch ((license, badge)) {
+function renderLicenseBadge(license) {
+	let badge = "";
+	switch (license) {
 		case "GNU":
-			licenseLink = "";
-			licenseBadge = "";
+			badge = "`![License](https://img.shields.io/badge/License-GNU-green.svg`";
 			break;
 		case "Apache 2.0":
-			licenseLink = "https://www.apache.org/licenses/LICENSE-2.0.html";
-			licenseBadge = "";
+			badge =
+				"`![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)`";
 			break;
 		case "ISC":
-			licenseLink = "";
-			licenseBadge = "";
-			break;
-		case "GNU":
-			licenseLink = "";
-			licenseBadge = "";
+			badge =
+				"`![License](https://img.shields.io/badge/License-ISC-green.svg)`";
 			break;
 		case "MIT":
-			licenseLink = "https://mit-license.org/";
-			licenseBadge = "";
-			break;
-		case "GPL v3.0":
-			licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
-			licenseBadge = "";
+			badge =
+				"`![License](https://img.shields.io/badge/License-MIT-green.svg)`";
 			break;
 		default:
-			licenseLink = "";
-			licenseBadge = "";
+			badge = "";
 			break;
 	}
-	return licenseLink;
-	return licenseBadge;
+
+	return badge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 // function renderLicenseLink(license) {}
-
+function renderLicenseLink(license) {
+	let link = "";
+	switch (license) {
+		case "GNU":
+			link = "https://www.gnu.org/licenses/gpl-3.0.en.html";
+			break;
+		case "Apache 2.0":
+			link = "https://www.apache.org/licenses/LICENSE-2.0.html";
+			break;
+		case "ISC":
+			link = "";
+			break;
+		case "MIT":
+			link = "https://mit-license.org/";
+			break;
+		default:
+			link = "";
+			break;
+	}
+	return link;
+}
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
@@ -56,8 +65,9 @@ function renderLicenseSection(license) {
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
 	return `
-  # ${data.title} 
-  ## ${renderLicenseInfo(data.badge)} ### ${renderLicenseInfo(data.licenseLink)}
+  # ${data["title Request"]} 
+  ## ${renderLicenseBadge(badge)}
+  ### ${renderLicenseLink(link)}
 
   ## Table of Contents:
   - [Description](#description)
@@ -69,22 +79,60 @@ function generateMarkdown(data) {
   - [Questions](#questions)
 
   ## Description:
-  ${data.description}
+  ${data["Description Request"]}
   ## Installation:
-  ${data.installation}
+  ${data["Installation Request"]}
   ## Usage:
-  ${data.instructions}
+  ${data["Usage Request"]}
   ## Contribution:
-  ${data.contribution}
+  ${data["Contributions Request"]}
   ## Testing:
-  ${data.testing}
+  ${data["Testing Request"]}
 
-  ${renderLicenseSection}
+  ${renderLicenseSection(license)}
 
-  ## Question:
-  ###If you have any questions, please contact me at
-  ### my GitHub: https://github.com/${data.github}
-  ###or my email: ${data.email}`;
+  ## Questions:
+  ### If you have any questions, please contact me at:
+  ### GitHub: https://github.com/${data["Username Request"]}}
+  ### Email: ${data["Email Request"]}`;
 }
 
-module.exports = generateMarkdown;
+module.exports = {
+	generateMarkdown,
+	renderLicenseBadge,
+	renderLicenseLink,
+	renderLicenseSection,
+};
+
+// function renderLicenseInfo(license) {
+// 	let licenseBadge = "";
+// 	let licenseLink = "";
+// 	switch (license) {
+// 		case "GNU":
+// 			licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
+// 			licenseBadge =
+// 				"`![License](https://img.shields.io/badge/License-GNU-green.svg`";
+// 			break;
+// 		case "Apache 2.0":
+// 			licenseLink = "https://www.apache.org/licenses/LICENSE-2.0.html";
+// 			licenseBadge =
+// 				"`![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)`";
+// 			break;
+// 		case "ISC":
+// 			licenseLink = "";
+// 			licenseBadge =
+// 				"`![License](https://img.shields.io/badge/License-ISC-green.svg)`";
+// 			break;
+// 		case "MIT":
+// 			licenseLink = "https://mit-license.org/";
+// 			licenseBadge =
+// 				"`![License](https://img.shields.io/badge/License-MIT-green.svg)`";
+// 			break;
+// 		default:
+// 			licenseLink = "";
+// 			licenseBadge = "";
+// 			break;
+// 	}
+// 	console.log(${license});
+// 	// return licenseLink,
+// }
