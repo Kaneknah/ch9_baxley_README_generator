@@ -2,7 +2,7 @@
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const util = require("util");
-const fs = require("fs/promises");
+const fsPromise = require("fs/promises");
 
 // TODO: Create an array of questions for user input
 const questions = [
