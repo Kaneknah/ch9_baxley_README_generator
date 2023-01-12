@@ -151,7 +151,7 @@ const questions = [
 // TODO: Create a function to write README file
 async function writeToFile(fileContent) {
 	try {
-		await fs.writeFile("./newREADME.md", fileContent);
+		await fsPromise.writeFile("./newREADME.md", fileContent);
 	} catch (err) {
 		console.log(err);
 	}
