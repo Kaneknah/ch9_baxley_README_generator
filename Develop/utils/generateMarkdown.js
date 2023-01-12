@@ -1,5 +1,9 @@
+const inquirer = require("inquirer");
+const index = require("../index.js");
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+
 function renderLicenseBadge(license) {
 	let badge = "";
 	switch (license) {
@@ -39,7 +43,7 @@ function renderLicenseLink(license) {
 			link = "https://www.apache.org/licenses/LICENSE-2.0.html";
 			break;
 		case "ISC":
-			link = "";
+			link = "https://https://opensource.org/licenses/ISC";
 			break;
 		case "MIT":
 			link = "https://mit-license.org/";
@@ -55,7 +59,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
 	let licenseSection = "";
 	if (license) {
-		licenseSection = "License: $(license}";
+		licenseSection = "License: ${license}";
 	} else {
 		licenseSection = "";
 	}
@@ -66,6 +70,7 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
 	return `
   # ${data["title Request"]} 
+  # ${data.title}
   ## ${renderLicenseBadge(badge)}
   ### ${renderLicenseLink(link)}
 
@@ -88,7 +93,7 @@ function generateMarkdown(data) {
   ${data["Contributions Request"]}
   ## Testing:
   ${data["Testing Request"]}
-
+  ##License
   ${renderLicenseSection(license)}
 
   ## Questions:
@@ -97,12 +102,7 @@ function generateMarkdown(data) {
   ### Email: ${data["Email Request"]}`;
 }
 
-module.exports = {
-	generateMarkdown,
-	renderLicenseBadge,
-	renderLicenseLink,
-	renderLicenseSection,
-};
+module.exports = generateMarkdown;
 
 // function renderLicenseInfo(license) {
 // 	let licenseBadge = "";
