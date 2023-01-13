@@ -69,7 +69,7 @@ function generateMarkdown(data) {
 	return `
   # ${data["title Request"]} 
   ## ${renderLicenseBadge(data["License"])}
-  ## ${renderLicenseLink(data["License"])}
+  
 
   
   ## Table of Contents:
@@ -92,7 +92,7 @@ function generateMarkdown(data) {
   ## Testing:
   ${data["Testing Request"]};
   ## License:
-  ${renderLicenseSection(data["License"])};
+  ${renderLicenseLink(data["License"])}
 
   ## Questions:
   ### If you have any questions, please contact me at:
