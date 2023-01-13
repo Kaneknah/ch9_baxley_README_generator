@@ -8,25 +8,22 @@ function renderLicenseBadge(license) {
 	let badge = "";
 	switch (license) {
 		case "GNU":
-			badge = "`![License](https://img.shields.io/badge/License-GNU-green.svg`";
+			badge = `![License](https://img.shields.io/badge/License-GNU-green.svg)`;
 			break;
 		case "Apache 2.0":
-			badge =
-				"`![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)`";
+			badge = `![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)`;
 			break;
 		case "ISC":
-			badge =
-				"`![License](https://img.shields.io/badge/License-ISC-green.svg)`";
+			badge = `![License](https://img.shields.io/badge/License-ISC-green.svg)`;
 			break;
 		case "MIT":
 			badge =
-				"`![License](https://img.shields.io/badge/License-MIT-green.svg)`";
+				"[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
 			break;
 		default:
 			badge = "";
 			break;
 	}
-
 	return badge;
 }
 
@@ -60,7 +57,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
 	let licenseSection = "";
 	if (license) {
-		licenseSection = "License: ${license}";
+		licenseSection = "License: ${License}";
 	} else {
 		licenseSection = "";
 	}
@@ -71,8 +68,8 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
 	return `
   # ${data["title Request"]} 
-  ## ${renderLicenseBadge(data["license"])}
-  ## ${renderLicenseLink(data["license"])}
+  ## ${renderLicenseBadge(data["License"])}
+  ## ${renderLicenseLink(data["License"])}
 
   
   ## Table of Contents:
@@ -95,7 +92,7 @@ function generateMarkdown(data) {
   ## Testing:
   ${data["Testing Request"]};
   ## License:
-  ${renderLicenseSection(data["license"])};
+  ${renderLicenseSection(data["License"])};
 
   ## Questions:
   ### If you have any questions, please contact me at:
