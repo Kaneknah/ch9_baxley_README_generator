@@ -22,7 +22,8 @@ The user must first select the package.json file and open it in the integrated t
 
 This project can be initiated by typing 'node index' into the terminal(after installation). The user will be prompted to answer several questions regarding the Title, Description, Installation, Usage, Contribution, Testing, License, and Questions sections of the README. as the user inputs and selects the answers for these questions, as well as other identifying information, the application will then generate a clean README file displaying this information in a .md format.
 
-![Alt text](./assets/images/simple-calendar.jpg)
+![Alt text](./Develop/images/readmescreenshot1.png)
+![Alt text](./Develop/images/readmescreenshot2.png)
 
 ## Credits
 
