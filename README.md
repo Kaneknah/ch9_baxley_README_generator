@@ -47,7 +47,7 @@ This project can be initiated by typing 'node index' into the terminal(after ins
 
 ## Credits
 
-Starter Code provided by Berkely Bootcamp.
+Starter Code utilized for this project.
 
 ## License
 
